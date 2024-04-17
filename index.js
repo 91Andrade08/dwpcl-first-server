@@ -93,7 +93,18 @@ const server = http.createServer(async (req, res) => {
         // Cerrando la comunicacion
         res.end();
       }
-      break
+      break;
+      case "/message":
+      // Verificando si es post
+      if (method === "POST") {
+        // Procesa el formulario
+        res.statusCode = 200;
+        res.write("🎉 Endpoint Funcionando!!! 🎉");
+      } else {
+        res.statusCode = 404;
+        res.write("404: Endpoint no encontrado")
+      }
+
     default:
       // Peticion raiz
       // Estableciendo cabeceras
