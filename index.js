@@ -43,7 +43,7 @@ const server = http.createServer(async (req, res) => {
       res.write(`
       <html>
         <head>
-          <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico">
+          <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico">
           <title>My App</title>
         </head>
         <body style="text-align: center;">
