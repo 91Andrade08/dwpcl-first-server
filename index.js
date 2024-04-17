@@ -104,7 +104,8 @@ const server = http.createServer(async (req, res) => {
         res.statusCode = 404;
         res.write("404: Endpoint no encontrado")
       }
-
+      res.end();
+      break;
     default:
       // Peticion raiz
       // Estableciendo cabeceras
