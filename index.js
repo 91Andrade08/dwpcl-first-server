@@ -57,8 +57,6 @@ const server = http.createServer(async (req, res) => {
           </style>
         </head>
         <body> 
-          <h1 style="color: #333">Hello from my server</h1>
-          <p style="color: #34495E">Estas en el recurso raiz.</p>
           <h1>Hello from my server</h1>
           <h2>Ingresa un mensaje</h2>
           <div>
