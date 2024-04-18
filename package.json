@@ -1,16 +1,16 @@
 {
   "name": "first-server",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "description": "Primer servidor web basado en Node",
   "main": "index.js",
   "engines": {
     "node": "14.x",
     "npm": "7.x"
-    },
-    "scripts": {
-      "start": "node ./"
-    
+  },
+  "scripts": {
+    "start": "node ./",
+    "dev": "nodemon ./"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,8 @@
     "itgam"
   ],
   "author": "@andrade",
-  "license": "MIT"
-
-
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }
-
