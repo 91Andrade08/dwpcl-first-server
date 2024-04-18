@@ -134,31 +134,32 @@ const server = http.createServer(async (req, res) => {
         res.end();
       }
       break;
-           case "/message":
-      // Verificando si es post
-      if (method === "POST") {
-        // Se crea una variable para almacenar los
-		    // Datos entrantes del cliente
-        let body = "";
-        // Se registra un manejador de eventos
-        // Para la recepción de datos
-        req.on("data", (data => {
-          body += data;
-          if (body.length > 1e6) return req.socket.destroy();
-        }));
-        // Se registra una manejador de eventos
-		    // para el termino de recepción de datos
-        req.on("end", async () => {
-          // Procesa el formulario
-          // Mediante URLSearchParams se extraen
-			    // los campos del formulario
-          const params = new URLSearchParams(body);
-          // Se construye un objeto a partir de los datos
-			    // en la variable params
-          const parsedParams = Object.fromEntries(params);
-          // Almacenaremos en un archivo el mensaje
-          await fs.writeFile('message.txt', parsedParams.message);
-          console.log("Archivo escrito");
+      case "/message":
+        // Verificando si es post
+        if (method === "POST") {
+          // Se crea una variable para almacenar los
+          // Datos entrantes del cliente
+          let body = "";
+          // Se registra un manejador de eventos
+          // Para la recepción de datos
+          req.on("data", (data => {
+            body += data;
+            if (body.length > 1e6) return req.socket.destroy();
+          }));
+          // Se registra una manejador de eventos
+          // para el termino de recepción de datos
+          req.on("end", async () => {
+            // Procesa el formulario
+            // Mediante URLSearchParams se extraen
+            // los campos del formulario
+            const params = new URLSearchParams(body);
+            // Se construye un objeto a partir de los datos
+            // en la variable params
+            const parsedParams = Object.fromEntries(params);
+            // Almacenaremos en un archivo el mensaje
+            await fs.writeFile('message.txt', parsedParams.message);
+            console.log("📣 Archivo message.txt grabado");
+          })
           // En lugar de regrear una pagina HTML
           // Realizaremos un redireccionamiento
           res.statusCode = 302;
@@ -166,13 +167,12 @@ const server = http.createServer(async (req, res) => {
           res.setHeader('Location', '/');
           // Se finaliza la conexion
           return res.end();
-        })
-      } else {
-        res.statusCode = 404;
-        res.write("404: Endpoint no encontrado")
-        res.end();
-      }
-      break;
+        } else {
+          res.statusCode = 404;
+          res.write("📣 404: Endpoint no encontrado")
+          res.end();
+        }
+        break;
       // Continua con el defautl
     default:
       // Peticion raiz
