@@ -58,7 +58,7 @@ const requestHandler = async (req, res) => {
           </style>
         </head>
         <body> 
-          <h1>Hello from my server</h1>
+          <h1>Hola desde mi app</h1>
           <h2>Ingresa un mensaje</h2>
           <div>
             <form action="/message" method="POST">

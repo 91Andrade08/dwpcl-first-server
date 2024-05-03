@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Primer servidor web basado en Node",
   "main": "index.js",
-
   "engines": {
     "node": "20.x",
     "npm": "9.x"
